@@ -1,0 +1,20 @@
+<h1>{{title}}</h1>
+<form action='/weather' method='POST' class='mb-4'>
+  <div class='form-group'>
+
+    <input type='text' placeholder='Enter a City' name='cityName' />
+  </div>
+
+  <input type='submit' value='Submit' class='btn btn-primary btn-block' />
+</form>
+<div>
+  {{#if notFound}}
+
+    <p>City Not Found</p>
+  {{/if}}
+
+  {{#if city}}
+
+    <p>The temperature of {{city}} is {{temp}}</p>
+  {{/if}}
+</div>
