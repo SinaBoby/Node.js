@@ -16,16 +16,16 @@ router.post('/', async (req, res) => {
       if (!response.ok) {
         
         res.status(404);
-        res.render('index', { title: 'Weather App' , found:true})
+        res.render('index', { title: 'Weather App' , notFound:true})
       } else {
         const json = await response.json();
-        console.log(json.main.temp);
+        console.log(json);
         
         res.status(200);
         res.render('index', { title: 'Weather App' , city:`${city}`,temp: `${json.main.temp}`})
       }
     }else {
-      res.render('index', { title: 'Weather App' , notFound:true})
+      res.status(404).render('index', { title: 'Weather App' , notFound:true})
     }
   } catch (err) {
     console.log(err);
