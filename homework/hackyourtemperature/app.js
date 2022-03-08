@@ -1,8 +1,10 @@
 
+import 'dotenv/config'
 import keys from './sources/keys.js';
 import express from 'express';
 import fetch from 'node-fetch';
 import { engine } from 'express-handlebars';
+import { config } from 'dotenv';
 const app = express();
 app.engine('handlebars', engine({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');

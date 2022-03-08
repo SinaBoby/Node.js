@@ -1,5 +1,4 @@
 import app from "../app.js";
-import keys from '../sources/keys.js';
 import supertest from "supertest";
 
 const request = supertest(app);
@@ -27,7 +26,6 @@ describe("POST /weather", () => {
         .send({cityName:`Amsterdam`})
         .then(response => {
           expect(response.statusCode).toBe(200);
-          /* done(); */
         });
     });
   }),
@@ -39,7 +37,6 @@ describe("POST /weather", () => {
         .then(response => {
           expect(response.headers['content-type']).toEqual(expect.stringContaining('html')),
           expect(response.text).toEqual(expect.stringContaining('Amsterdam'))
-          /* done(); */
         });
     });
   }),
@@ -50,7 +47,6 @@ describe("POST /weather", () => {
         .send({cityName:``})
         .then(response => {
           expect(response.statusCode).toBe(404);
-        /*   done(); */
         });
     });
   }),
@@ -61,7 +57,6 @@ describe("POST /weather", () => {
         .send({cityName:`dgfgfhghgh`})
         .then(response => {
           expect(response.statusCode).toBe(404);
-          
         });
     });
   })
